@@ -1,0 +1,13 @@
+# 编译产物（不进版本库）
+*.exe
+*.o
+*.obj
+*.out
+*.ilk
+*.pdb
+
+# 临时文件 / 系统文件
+*.tmp
+Thumbs.db
+Desktop.ini
+~$*

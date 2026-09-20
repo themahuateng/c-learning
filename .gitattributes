@@ -1,0 +1,5 @@
+# 统一换行符处理（消除每次 add 时刷屏的 LF/CRLF 警告）
+* text=auto eol=crlf
+
+# 二进制文件不做文本转换
+*.exe binary

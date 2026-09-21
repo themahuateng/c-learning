@@ -47,5 +47,5 @@ int main(void)
      */
     free(p);
 
-    return 0;
+    return 1;
 }

@@ -20,13 +20,13 @@ int main(void)
     /* 空 1 ↓: 借 n 个 int 的内存, 把首地址存进 p
      *   提示: malloc 要的是"字节数" —— n 个 int 是多大?
      */
-    int *p = ___HERE_1___;
+    int *p = malloc(n * sizeof(int));
 
     if (p == NULL) {
         printf("内存分配失败\n");
         return 1;
     }
-
+    
     /* 读入 n 个数 */
     for (int i = 0; i < n; i++) {
         scanf("%d", &p[i]);
@@ -37,7 +37,7 @@ int main(void)
      */
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        ___HERE_2___
+        sum = sum + p[i];
     }
 
     printf("总和 = %.0f, 平均 = %.2f\n", sum, sum / n);
@@ -45,7 +45,7 @@ int main(void)
     /* 空 3 ↓: 用完了, 把内存还回去
      *   提示: 一个函数名 + 括号里的参数
      */
-    ___HERE_3___
+    free(p);
 
     return 0;
 }

@@ -84,4 +84,5 @@
 | 2026-09-19 | 复习：数组 + 循环（warmup1、金字塔） | 已跑通 | review/ 目录 |
 | 2026-09-20 | 第 7 课：指针（四件套、数组与指针、指针作参数、命令行参数） | 已通关（4 个练习全部验证） | 笔记见 lesson07-pointers/lesson07.md |
 | 2026-09-20 | 第 8 课教材备好（动态内存） | 待开讲 | lesson08-dynamic-memory/ |
+| 2026-09-21 | 第 8 课：动态内存（malloc / free / NULL 检查） | **已通关**（编译零警告，三组测试全过） | lesson08-dynamic-memory/exercise1.c |
 

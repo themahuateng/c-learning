@@ -16,7 +16,7 @@
 void read_numbers(int *p, int n)
 {
     for (int i = 0; i < n; i++) {
-        ___HERE_1___
+        scanf("%d", &p[i]);
     }
 }
 
@@ -44,7 +44,7 @@ int main(void)
     /* 空 2 ↓: 调用读入函数, 把借来的内存和个数交给它
      *   提示: 传数组时只写名字（第 7 课学的）
      */
-    ___HERE_2___
+    read_numbers(p, n);
 
     printf("平均 = %.2f\n", average(p, n));
 

@@ -29,14 +29,14 @@ int main(void)
     /* 空 1 ↓: 擂台法的起点 —— 先让第 0 个数当擂主
      *   提示: 最大最小都先从哪一格开始?
      */
-    int max = ___HERE_1___;
-    int min = ___HERE_1___;
+    int max = p[0];
+    int min = p[0];
 
     /* 从第 1 个开始挑战 (第 0 个已经是擂主了) */
     for (int i = 1; i < n; i++) {
         if (p[i] > max) {
             /* 空 2 ↓: 有人打赢了, 换擂主 */
-            ___HERE_2___
+           max = p[i];
         }
         if (p[i] < min) {
             min = p[i];

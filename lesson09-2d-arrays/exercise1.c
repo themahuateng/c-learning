@@ -27,16 +27,16 @@ int main(void)
      */
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 3; j++) {
-            ___HERE_1___
+            t[j][i] = a[i][j];
         }
     }
-
+    
     /* 打印转置后的结果 —— 注意它是 3 行 2 列 */
     printf("转置之后:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 2; j++) {
             /* 空 2 ↓: 打印 t 的第 i 行第 j 列 */
-            printf("%d ", ___HERE_2___);
+            printf("%d ", t[i][j]);
         }
         printf("\n");
     }

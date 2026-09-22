@@ -4,6 +4,14 @@
     "C_Cpp.default.cppStandard": "c17",
     "files.associations": {
         "*.c": "c"
-    }
+    },
+
+    "editor.tabCompletion": "off",
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.acceptSuggestionOnEnter": "off"
 }
 

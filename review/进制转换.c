@@ -35,12 +35,11 @@ int main(void)
 
     while (a > 0)
     {
-        p[i] = a % 2;   /* 取最低位 */
+        p[i] = a % 2;  
         a = a / 2;         /* 去掉最低位 */
         i++;               /* 存到下一格 */
     }
 
-    /* 倒着打印 */
     for (int j = i - 1; j >= 0; j--)
     {
         printf("%d", p[j]);

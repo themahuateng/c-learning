@@ -16,12 +16,14 @@ void my_strcpy(char *dst, const char *src)
 
     while (src[i] != '\0') {
         /* 空 1 ↓: 把 src 的这一格搬到 dst 的同一格 */
-        ___HERE_1___
+        dst[i] = src[i];
         i++;
     }
+    
+    
 
     /* 空 2 ↓: 复制完字符后, 还要补上字符串的结尾标记 */
-    ___HERE_2___
+    dst[i] = '\0';
 }
 
 int main(void)

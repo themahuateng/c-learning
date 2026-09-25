@@ -22,7 +22,7 @@ int main(void)
     /* 空 1 ↓: 用三目运算符, 一次算出 a 和 b 里较大的那个
      *   写法参考: (条件) ? 条件真时的值 : 条件假时的值
      */
-    int bigger = ___HERE_1___;
+    int bigger = (a > b) ? a : b;
 
     switch (choice) {
         case 1:
@@ -30,7 +30,7 @@ int main(void)
             /* 空 2 ↓: 每个 case 干完活, 必须写一句什么?
              *   （不写的话, 会继续往下执行别的 case）
              */
-            ___HERE_2___
+            break;
         case 2:
             printf("较小值 = %d\n", (a < b) ? a : b);
             break;

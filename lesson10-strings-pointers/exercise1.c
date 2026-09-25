@@ -16,7 +16,7 @@
 int my_strlen(const char *s)
 {
     int count = 0;
-    while (___HERE_1___) {
+    while (s[count] != '\0') {
         count++;
     }
     return count;
@@ -28,7 +28,7 @@ int main(void)
 
     printf("字符串: %s\n", text);
     /* 空 2 ↓: 调用你写的函数求长度 */
-    printf("长度: %d\n", ___HERE_2___);
+    printf("长度: %d\n", my_strlen(text));
 
     return 0;
 }

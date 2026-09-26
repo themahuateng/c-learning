@@ -88,7 +88,7 @@
 - `.vscode/build_run.ps1` 必须存为 UTF-8 BOM（PS 5.1 否则按 GBK 读会乱码）
 - VS Code 已开学习模式：tabCompletion off、quickSuggestions off
 - Git：已初始化、分支 main、身份 themahuateng / 3065882679@qq.com
-- Git 待办：GitHub 远程未关联，尚未 push
+- GitHub：已关联 origin → https://github.com/themahuateng/c-learning.git，main 已推送（2026-09-26）
 - WSL 待办：未安装（需管理员 `wsl --install` + 重启）
 
 ## 教学红线（不可违反）

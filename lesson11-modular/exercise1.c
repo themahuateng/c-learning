@@ -15,7 +15,7 @@
  */
 int next_id(void)
 {
-    ___HERE_1___ int count = 0;
+    static int count = 0;
     count++;
     return count;
 }
@@ -24,7 +24,7 @@ int next_id(void)
 int broken_id(void)
 {
     /* 空 2 ↓: 没有"长期记忆", 每次进来都从几开始数? */
-    int count = ___HERE_2___;
+    int count = 0;
     count++;
     return count;
 }

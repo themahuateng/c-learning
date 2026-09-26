@@ -23,7 +23,7 @@
 #include <stdio.h>
 
 /* 这里写 my_strlen（你已经写过，凭印象再来一遍） */
-int my_strlen(char *text)
+int my_strlen(  char *text)
 {
     int i = 0;
     while(text[i] !='\0'){

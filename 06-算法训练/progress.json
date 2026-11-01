@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-01",
+  "problems": {},
+  "stage_history": [
+    {
+      "stage": "C-struct",
+      "status": "passed",
+      "completed_at": "2026-11-01",
+      "evidence": "student-array-review.c 编译无警告；n=1、降序、升序、全相同测试通过"
+    }
+  ]
+}

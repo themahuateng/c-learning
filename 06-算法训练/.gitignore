@@ -1,0 +1,7 @@
+# 题面仅供个人学习缓存，不提交到公开仓库
+bank/statements/
+bank/cache/
+
+# Python 缓存
+__pycache__/
+*.pyc

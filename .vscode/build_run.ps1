@@ -1,11 +1,11 @@
 ﻿# 编译并运行 C 程序（VS Code 一键任务调用）
 #
 # 支持两种模式：
-#   1. 纯单文件项目       -> 只编译当前文件
-#   2. 多文件项目         -> 编译同目录下所有 .c 文件
+#   1. 普通练习目录       -> 只编译当前 .c 文件
+#   2. 多文件项目目录     -> 如果当前文件是 main.c，
+#                            并且同目录还有别的 .c，就一起编译
 #
-# 规则：如果同目录下存在多个 .c 文件，就全部一起编译。
-#       所以一个文件夹 = 一个程序，不要把多个独立练习混放。
+# 这样 lesson 目录里放多个独立练习时，不会把多个 main 一起编译。
 
 param(
     [Parameter(Mandatory = $true)]
@@ -22,14 +22,16 @@ $dir = [System.IO.Path]::GetDirectoryName($File)
 
 # === 找出同目录下所有 .c 文件 ===
 $allC = @(Get-ChildItem -LiteralPath $dir -Filter '*.c' -File | Sort-Object Name)
+$currentName = [System.IO.Path]::GetFileName($File)
+$hasMain = Test-Path -LiteralPath (Join-Path $dir 'main.c')
 
-if ($allC.Count -gt 1) {
-    # 多文件项目：全部一起编译
+if ($allC.Count -gt 1 -and $hasMain -and $currentName -ieq 'main.c') {
+    # 多文件项目：从 main.c 启动时，全部一起编译
     $sources = $allC.FullName
     Write-Host "多文件项目：共 $($allC.Count) 个 .c 文件" -ForegroundColor Cyan
     foreach ($f in $allC) { Write-Host "  - $($f.Name)" -ForegroundColor DarkGray }
 } else {
-    # 单文件项目：只编当前文件
+    # 普通练习：只编当前文件，避免多个独立 main 冲突
     $sources = @($File)
 }
 

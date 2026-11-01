@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-01",
+  "current_stage": "C-linked-list",
+  "principles": [
+    "每道题先独立写，再看提示；看题解后必须从空文件重写。",
+    "新知识必须同时产出：基础实现、变式题、一个可运行的小项目。",
+    "题面只作个人学习缓存，不公开再分发；题解和他人代码不抓取。",
+    "同一道代表性题目可以在 C、C++、Python 中分阶段重做，用来比较语言和工具，不要求所有题重复刷三遍。"
+  ],
+  "stages": [
+    {
+      "id": "C-struct",
+      "title": "结构体验收：进入链表前的门槛",
+      "goal": "先用一个完整程序证明结构体、数组、函数和动态内存能一起工作，再进入链表。",
+      "problem_ids": [
+        "luogu:B2125",
+        "luogu:B2158",
+        "luogu:B2159",
+        "luogu:B2160"
+      ],
+      "project_gate": "完成 student-array-review.c：找最高分、按成绩降序排序，并用普通、逆序、全相同三组数据测试。",
+      "exit_criteria": [
+        "能从空文件写出结构体数组的输入、输出、最高分和排序。",
+        "能解释为什么交换结构体时要整体复制 Student，而不是只交换 score。",
+        "至少独立通过 2 道同类题。"
+      ],
+      "mainline_gate": true,
+      "gate_completed": true,
+      "gate": {
+        "file": "D:\\C-Learning\\03-C练习\\lesson13-structs\\student-array-review.c",
+        "task": "修复当前文件，使它通过 -Wall -Wextra 编译，并验收普通、逆序、全相同三组数据。",
+        "criteria": [
+          "文件能通过 gcc -std=c17 -Wall -Wextra 编译",
+          "能正确读入 n 个学生",
+          "能找出最高分",
+          "能按成绩降序输出",
+          "n=1、逆序、全相同三组测试通过"
+        ]
+      },
+      "problem_role": "结构体稳定后的可选应用题，不是进入链表前的硬门槛。",
+      "completion_evidence": "2026-11-01 通过 gcc -std=c17 -Wall -Wextra；n=1、降序、升序、全相同四组测试通过。"
+    },
+    {
+      "id": "C-linked-list",
+      "title": "单链表：结构体 + 指针 + 动态内存",
+      "goal": "从节点和 head 开始，独立完成建链、遍历、插入、删除、释放。",
+      "problem_ids": [
+        "luogu:B3631",
+        "luogu:B3630",
+        "luogu:P1996"
+      ],
+      "project_gate": "做一个内存版通讯录：添加、遍历、查找、删除、释放，全部用单链表完成。",
+      "exit_criteria": [
+        "能画 head -> node -> NULL 的地址图。",
+        "能独立完成头插、尾插、删除和释放。",
+        "能用测试数据证明没有丢节点、没有重复释放。"
+      ],
+      "mainline_gate": true,
+      "gate_completed": false,
+      "gate": {
+        "file": "D:\\C-Learning\\03-C练习\\lesson14-linked-list\\01-node-basics.c",
+        "task": "先完成两个节点的连接、通过 a 找到 b，并释放两个节点。",
+        "criteria": [
+          "能说明 a 和 b 分别存了什么",
+          "a->next 指向 b，b->next 为 NULL",
+          "能通过 a 打印 10 和 20",
+          "两个节点都 free，指针置 NULL"
+        ]
+      },
+      "problem_role": "链表基础通过后，用一题做完整输入输出；不是先刷题再学链表。",
+      "current": true
+    },
+    {
+      "id": "C-stack-queue",
+      "title": "栈与队列应用题",
+      "goal": "用数组版和链表版分别实现栈、队列，并解决表达式与调度问题。",
+      "problem_ids": [
+        "luogu:P1739",
+        "luogu:P1449",
+        "luogu:P1540"
+      ],
+      "project_gate": "完成一个支持入栈、出栈、查看栈顶和括号匹配的小工具；再完成一个简单排队叫号程序。",
+      "exit_criteria": [
+        "能解释栈的后进先出和队列的先进先出。",
+        "能自己处理空栈、空队列、满容器。",
+        "能把栈/队列用到一个非课本场景中。"
+      ],
+      "mainline_gate": true,
+      "gate_completed": false
+    },
+    {
+      "id": "C-file-project",
+      "title": "文件读写与综合项目",
+      "goal": "让程序的数据在关闭后仍然存在，形成真正可重复使用的作品。",
+      "problem_ids": [],
+      "project_gate": "把通讯录或成绩系统接入文件：启动读取、修改保存、错误处理、多文件组织。",
+      "exit_criteria": [
+        "能处理文件不存在、格式错误和写入失败。",
+        "能用 Git 提交一个可运行版本。",
+        "能写出使用说明和测试记录。"
+      ],
+      "mainline_gate": true,
+      "gate_completed": false
+    }
+  ],
+  "language_ladder": [
+    {
+      "language": "C",
+      "when": "当前到文件和综合项目阶段",
+      "purpose": "理解内存、指针、结构体、手动资源管理；所有算法先能写完整程序。",
+      "evidence": "每阶段至少一个小项目 + 当前阶段题目通过。"
+    },
+    {
+      "language": "C++",
+      "when": "完成 C 综合项目后",
+      "purpose": "学习 RAII、STL、类和现代 C++；选代表性的 3~5 题用 STL 重做并比较。",
+      "evidence": "一个使用 vector/string/智能指针的完整程序 + 对照记录。"
+    },
+    {
+      "language": "Python",
+      "when": "进入 AI 与数据处理阶段",
+      "purpose": "快速实验、数据处理、机器学习与自动化；选 3~5 题重做并写单元测试。",
+      "evidence": "一个数据分析或 AI 小项目，而不是只会写脚本片段。"
+    },
+    {
+      "language": "嵌入式 C / 汇编",
+      "when": "进入系统、单片机、体系结构阶段",
+      "purpose": "连接软件和硬件，理解寄存器、中断、内存映射和启动过程。",
+      "evidence": "可运行的传感器/串口/存储项目，配合示波器或串口日志验证。"
+    }
+  ],
+  "platform_policy": [
+    {
+      "platform": "Luogu",
+      "use": "C 完整程序、基础算法、边界测试和数据规模意识",
+      "when": "当前阶段",
+      "avoid": "不要随机刷高难度题，不要看题解后直接复制。"
+    },
+    {
+      "platform": "LeetCode",
+      "use": "C++/Python 的函数级算法、常见数据结构和面试模式",
+      "when": "完成 C 链表/栈/队列之后再用",
+      "avoid": "不能只写函数而不会搭建完整程序。"
+    },
+    {
+      "platform": "Codeforces / AtCoder",
+      "use": "限时思维、数学、实现速度和竞赛反馈",
+      "when": "基础数据结构和复杂度稳定之后",
+      "avoid": "早期不要用比赛排名制造焦虑。"
+    },
+    {
+      "platform": "本地项目",
+      "use": "把算法变成真正可运行、可测试、可维护的程序",
+      "when": "每个学习阶段都必须做",
+      "avoid": "只做 OJ 题、不做项目。"
+    }
+  ],
+  "scheduling_policy": {
+    "order": "只做 current_stage；阶段内按 problem_ids 顺序；阶段题和 project_gate 全过后才切换阶段",
+    "new_problem_limit_per_day": 1,
+    "independent_attempt_minutes": 25,
+    "review_interval_days": 2,
+    "pass_gate": [
+      "gcc -std=c17 -Wall -Wextra 无错误、无警告",
+      "官方样例通过",
+      "自造至少 3 组测试，含最小规模、极端值、重复或逆序",
+      "能说明时间复杂度和关键边界"
+    ],
+    "hint_policy": "先给方向性问题，不给完整代码；看题解后必须从空文件重写"
+  },
+  "algorithm_practice_layer": {
+    "rule": "算法题只服务当前 C 主线任务；不单独抢占 current_stage，不按题号连续刷。",
+    "drills": [
+      {
+        "id": "sort-application",
+        "when": "结构体验收通过后，用 1~2 题练习排序应用",
+        "problem_ids": [
+          "luogu:P1059",
+          "luogu:P1093"
+        ],
+        "platforms": [
+          "Luogu",
+          "LeetCode 912/912 变式"
+        ]
+      },
+      {
+        "id": "binary-double-pointer-recursion",
+        "when": "链表/栈/队列学习期间，按当前任务插入 20~30 分钟小练习",
+        "problem_ids": [
+          "luogu:P1147",
+          "luogu:P1102",
+          "luogu:B2129"
+        ],
+        "platforms": [
+          "Luogu",
+          "LeetCode 704/27/344/509"
+        ]
+      }
+    ]
+  }
+}
